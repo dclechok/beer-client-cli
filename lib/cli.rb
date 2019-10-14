@@ -13,7 +13,7 @@ class Cli
       list_breweries
       input = gets.chomp
 
-      if input != 'exit' || input != 'EXIT' && (input.to_i < 1 || input.to_i > Brewery.all.length)
+      if (input != 'exit' || input != 'EXIT') && (input.to_i < 1 || input.to_i > Brewery.all.length)
         begin
           raise InvalidSelectionError
         rescue InvalidSelectionError => error
@@ -32,6 +32,7 @@ class Cli
   end
 
   def brewery_info(brewery)
+    puts ''
     puts "*~~~~~~~~~~~~~~~~~*"
     puts "-#{Brewery.all[brewery - 1].name}-"
     puts "*~~~~~~~~~~~~~~~~~*"
