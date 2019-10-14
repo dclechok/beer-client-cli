@@ -13,4 +13,4 @@ Select the number that corresponds to the brewery that you wish to find more inf
 
 License
 -------
-The is available as open source under the terms of the MIT License.
+This available as open source under the terms of the MIT License.

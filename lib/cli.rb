@@ -3,23 +3,22 @@ class Cli
   def call
     Scraper.get_companies
     input = ""
-    while(input != 'exit' || input != 'EXIT') do
+    while(input != 'exit' && input != 'EXIT') do
       puts ''
       puts "Welcome to the Butler County Beer Circuit"
       puts "Here is a list of our local County Breweries: "
       puts "(Select a number to find out more information!)"
       puts "(Enter 'exit' to exit program.)"
-      puts ''
       list_breweries
       input = gets.chomp
 
-      if (input != 'exit' || input != 'EXIT') && (input.to_i < 1 || input.to_i > Brewery.all.length)
+      if (input != 'exit' && input != 'EXIT') && (input.to_i < 1 || input.to_i > Brewery.all.length)
         begin
           raise InvalidSelectionError
         rescue InvalidSelectionError => error
           puts error.message
         end
-      else
+      elsif (input != 'exit' && input != 'EXIT')
         brewery_info(input.to_i)
       end
     end
@@ -32,7 +31,6 @@ class Cli
   end
 
   def brewery_info(brewery)
-    puts ''
     puts "*~~~~~~~~~~~~~~~~~*"
     puts "-#{Brewery.all[brewery - 1].name}-"
     puts "*~~~~~~~~~~~~~~~~~*"
