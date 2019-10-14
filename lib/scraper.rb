@@ -11,7 +11,7 @@ class Scraper
       Brewery.new(name, desc, url) if (!name.empty?)
     end
   end
-  #
+
   # def self.company_data(brewery)
   #
   # end

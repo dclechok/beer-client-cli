@@ -2,4 +2,4 @@
 
 require_relative '../config/environment'
 
-BeerCircuit.call
+BeerCircuit.new.call
